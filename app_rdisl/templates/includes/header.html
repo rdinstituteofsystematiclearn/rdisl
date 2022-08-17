@@ -1,0 +1,130 @@
+  <!-- ======= Header ======= -->
+  {% load static %}
+  <header id="header" class="fixed-top">
+
+<div class="container-fluid" style="background-color:green;margin-top:-15px;padding:10px 10px;">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center" style="color:#FFFFFF"><a href="mailto:support@rdisl.com" style="color:#FFFFFF; padding-left:12px; ;"> support@rdisl.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4" style="color:#FFFFFF"><span><a href="tel:05422450126" style="color:#FFFFFF"> 05422450126</a></span></i>
+      </div>
+      <div class="header-social-links d-flex">
+        <a href="#" class="twitter"><i class="bu bi-twitter" style="color:#FFFFFF"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook" style="color:#FFFFFF"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram" style="color:#FFFFFF"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin" style="color:#FFFFFF"></i></i></a>
+      </div>
+    </div>
+</div>
+
+    <div class="container d-flex align-items-center">
+
+     <h1 class="logo me-auto"><a href="{% url 'Home' %}"><img src="{% static 'assets/img/logo.png'%}" alt="logo" class="img-fluid"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.php" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'Home' %}" class="{% if request.resolver_match.url_name == 'Home' %}active{% endif %}">Home</a></li>
+
+          <li><a href="{% url 'About' %}" class="{% if request.resolver_match.url_name == 'About' %}active{% endif %}"><span>About</span> </a>
+            <!--ul>
+              <li><a href="">Overview</a></li>
+              <li><a href="#">Company Profile</a></li>
+              <li><a href="#">Certification</a></li>
+                <li><a href="#">Our Client</a></li>
+
+            </ul-->
+          </li>
+            <style>
+                .small-text {
+    color: #758c8d;
+    text-transform: initial;
+    padding-left: 5px;
+    font-size: 11px;
+    white-space: pre-line;
+}
+            </style>
+
+         <!-- Navbar dropdown -->
+<li class="dropdown"><a href="#"><span>Product</span><i class="bi bi-chevron-down"></i></a>
+    <ul>
+        <li><a href="{% url 'cbe' %}">Computer base Exam</a> </li>
+        <li><a href="{% url 'rpe' %}">Remote Produceter Exam</a> </li>
+        <li><a href="{% url 'recruitment' %}">Recruitment Exam</a> </li>
+
+
+
+    </ul>
+
+</li>
+      <!-- Left links -->
+<li class="dropdown"><a href="#"><span>Services</span><i class="bi bi-chevron-down"></i></a>
+    <ul>
+        <li><a href="{% url 'Website_Design' %}">Web Designing</a> </li>
+        <li><a href="{% url 'SoftwareDevelopment' %}">Software Development</a> </li>
+        <li><a href="{% url 'SEO' %}">Search Engine Optimization (SEO)</a> </li>
+        <li><a href="{% url 'ERP' %}">Enterprise resource planning (ERP)</a> </li>
+        <li><a href="{% url 'SocialMedia' %}">Social Media Marketing</a> </li>
+
+        <li><a href="{% url 'BulkSMS' %}">Bulk SMS Services</a> </li>
+
+        <li><a href="{% url 'DynamicCRM' %}">Dynamic CRM & Cloud CRM System</a> </li>
+        <li><a href="{% url 'ContentManagementSystems' %}">Content Management System</a> </li>
+
+
+    </ul>
+
+</li>
+          <li class="dropdown"><a href="#"><span> ONLINE EXAMINATIONS</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+        <li class="dropdown"><a href="#"><span>Online Examination Solution<br>
+         <small class="small-text">(Conduct scalable remote exams)</small>
+        </span> <i class="bi bi-chevron-right"></i>
+
+
+        </a>
+        <ul>
+                  <li><a href="{% url 'ExamPlatefrm' %}">Examination Platform</a></li>
+                  <li><a href="{% url 'EntranceExam' %}">Entrance Exam</a></li>
+                  <li><a href="{% url 'Semester' %}">Semester Exam</a></li>
+                  <li><a href="{% url 'OnlineEvolutionSystem' %}">Online Evaluation System</a></li>
+
+                </ul>
+        </li>
+
+
+        <li class="dropdown"><a href="#"><span>Remote Proctoring Solution<br>
+         <small class="small-text">(AI-based proctoring suite)</small>
+        </span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+        <li ><a href="#">Proctoring as a Service</a></li>
+                    <li><a href="#">Mettl Secure Browser</a></li>
+                    </ul>
+        </li>
+
+
+        <li><a href="#"><span>Online Certification Platform<br><small class="small-text">(Run online certification programs)</small>
+        </span></a> </li>
+
+                <li><a href="#" class="a1" style="color:#FFFFFF">Take Your Exams Online</a></li>
+
+
+    </ul>
+          </li>
+
+
+          <li><a href="#" class="{% if request.resolver_match.url_name == 'Pricing' %}active{% endif %}">Pricing</a></li>
+          <li><a href="#" class="{% if request.resolver_match.url_name == 'Blog' %}active{% endif %}">Blog</a></li>
+          <li><a href="{% url 'ContactUs' %}" class="{% if request.resolver_match.url_name == 'ContactUs' %}active{% endif %}">Contact</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex">
+      <div class="text-center"><a href="#"  class="a1" style="color:#FFFFFF">REQUEST A DEMO</a></div>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
