@@ -24,5 +24,6 @@ urlpatterns = [
     path('examination-platefrm/', ExamPlatefrm.as_view(), name='ExamPlatefrm'),
     path('entrance-exam/', EntranceExam.as_view(), name='EntranceExam'),
     path('semester/', Semester.as_view(), name='Semester'),
-    path('online-evalution-system/', OnlineEvolutionSystem.as_view(), name='OnlineEvolutionSystem')
+    path('online-evalution-system/', OnlineEvolutionSystem.as_view(), name='OnlineEvolutionSystem'),
+    path('online-proctoring-services/', OPS.as_view(), name='OPS'),
 ]

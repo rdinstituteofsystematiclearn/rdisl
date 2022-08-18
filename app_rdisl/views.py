@@ -124,3 +124,9 @@ class OnlineEvolutionSystem(TemplateView):
 
     def get_context_data(self, **kwargs):
         pass
+
+class OPS(TemplateView):
+    template_name = 'online-proctoring-services.html'
+
+    def get_context_data(self, **kwargs):
+        pass
