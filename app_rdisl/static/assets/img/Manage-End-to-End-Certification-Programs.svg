@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Manage-End-to-End-Certification-Programs">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Manage-End-to-End-Certification-Programs" clip-path="url(#clip-Manage-End-to-End-Certification-Programs)">
+    <g id="award-49" transform="translate(1.5 2.064)">
+      <path id="Path_48993" data-name="Path 48993" d="M14.552,24.407H1V1H23.175V9.624" fill="none" stroke="#002c77" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Path_48994" data-name="Path 48994" d="M23.392,14.625v9.086l-3.7-1.232L16,23.711V14.625" transform="translate(3.479 4.16)" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <circle id="Ellipse_1283" data-name="Ellipse 1283" cx="5" cy="5" r="5" transform="translate(18 9.871)" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Path_48995" data-name="Path 48995" d="M5,6H16.088M5,10.928h7.392M5,15.856h7.392" transform="translate(0.928 1.16)" fill="none" stroke="#002c77" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

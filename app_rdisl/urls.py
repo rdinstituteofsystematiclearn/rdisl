@@ -21,9 +21,10 @@ urlpatterns = [
     path('computer-base-examination/', CBE.as_view(), name='cbe'),
     path('remote-proctored-exam/', RPE.as_view(), name='rpe'),
     path('recruitment-exam/', Recruitement.as_view(), name='recruitment'),
-    path('examination-platefrm/', ExamPlatefrm.as_view(), name='ExamPlatefrm'),
+    path('examination-plate-frm/', ExamPlatefrm.as_view(), name='ExamPlate-frm'),
     path('entrance-exam/', EntranceExam.as_view(), name='EntranceExam'),
     path('semester/', Semester.as_view(), name='Semester'),
-    path('online-evalution-system/', OnlineEvolutionSystem.as_view(), name='OnlineEvolutionSystem'),
+    path('online-evaluation-system/', OnlineEvolutionSystem.as_view(), name='OnlineEvolutionSystem'),
     path('online-proctoring-services/', OPS.as_view(), name='OPS'),
+    path('online-certification-platform/', OCS.as_view(), name='OCS'),
 ]
