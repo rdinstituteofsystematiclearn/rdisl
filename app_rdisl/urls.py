@@ -32,4 +32,5 @@ urlpatterns = [
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('admin-services/', ServicesAdmin.as_view(), name='AddServices'),
     path('admin-slider/', SliderAdmin.as_view(), name='SliderAdd'),
+    path('view-slider/', SliderView.as_view(), name='SliderView'),
 ]
