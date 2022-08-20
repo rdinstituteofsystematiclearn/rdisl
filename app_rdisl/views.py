@@ -148,3 +148,9 @@ class ForgotPassword(TemplateView):
 
     def get_context_data(self, **kwargs):
         pass
+
+class DashboardView(TemplateView):
+    template_name = 'rdisl_admin/dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        pass

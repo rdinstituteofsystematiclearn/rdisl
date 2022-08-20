@@ -29,5 +29,5 @@ urlpatterns = [
     path('online-certification-platform/', OCS.as_view(), name='OCS'),
     path('log-in/', loginPage.as_view(), name='loginPage'),
     path('forgot-password/', ForgotPassword.as_view(), name='ForgotPassword'),
-    path('register/', RegisterNow.as_view(), name='register'),
+    path('dashboard/', DashboardView.as_view(), name='dashboard'),
 ]
