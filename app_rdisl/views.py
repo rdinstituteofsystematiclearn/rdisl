@@ -136,6 +136,7 @@ class loginPage(TemplateView):
     def get_context_data(self, **kwargs):
         pass
 
+
 class RegisterNow(TemplateView):
     template_name = 'rdisl_admin/register.html'
 
@@ -149,8 +150,16 @@ class ForgotPassword(TemplateView):
     def get_context_data(self, **kwargs):
         pass
 
+
 class DashboardView(TemplateView):
     template_name = 'rdisl_admin/dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        pass
+
+
+class ServicesView(TemplateView):
+    template_name = 'rdisl_admin/admin-services.html'
 
     def get_context_data(self, **kwargs):
         pass
