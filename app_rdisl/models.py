@@ -3,8 +3,6 @@ from datetime import datetime
 from django.db import models
 
 
-# Create your models here.
-
 class Slider(models.Model):
     slider_img = models.ImageField(upload_to='images', blank=True)
     title = models.CharField(max_length=100)
@@ -86,3 +84,18 @@ class Testimonial(models.Model):
 
     class Meta:
         db_table = 'tbl_feedback'
+
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'tbl_contact'

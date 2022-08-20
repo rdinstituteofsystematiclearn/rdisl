@@ -1,10 +1,5 @@
-from django.shortcuts import render
-
-from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.core.mail import send_mail
-from django.core.mail import BadHeaderError, send_mail
-from django.http import HttpResponse, HttpResponseRedirect
+
 from .models import Slider, OurServices, GalleryCategory, Gallery, Client, Testimonial
 
 
@@ -68,12 +63,7 @@ class ContentManagementSystems(TemplateView):
 class ContactUs(TemplateView):
     template_name = 'contact.html'
 
-
-class SendMail(TemplateView):
-    template_name = 'contact.html'
-
-    def get_context_data(self, request, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_context_data(self, *args, **kwargs):
         pass
 
 
@@ -135,6 +125,26 @@ class OPS(TemplateView):
 
 class OCS(TemplateView):
     template_name = "online-certification-software.html"
+
+    def get_context_data(self, **kwargs):
+        pass
+
+
+class loginPage(TemplateView):
+    template_name = 'rdisl_admin/login.html'
+
+    def get_context_data(self, **kwargs):
+        pass
+
+class RegisterNow(TemplateView):
+    template_name = 'rdisl_admin/register.html'
+
+    def get_context_data(self, **kwargs):
+        pass
+
+
+class ForgotPassword(TemplateView):
+    template_name = 'rdisl_admin/forgot-password.html'
 
     def get_context_data(self, **kwargs):
         pass
