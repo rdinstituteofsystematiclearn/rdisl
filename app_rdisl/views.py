@@ -158,8 +158,15 @@ class DashboardView(TemplateView):
         pass
 
 
-class ServicesView(TemplateView):
+class ServicesAdmin(TemplateView):
     template_name = 'rdisl_admin/admin-services.html'
+
+    def get_context_data(self, **kwargs):
+        pass
+
+
+class SliderAdmin(TemplateView):
+    template_name = 'rdisl_admin/admin-slider.html'
 
     def get_context_data(self, **kwargs):
         pass

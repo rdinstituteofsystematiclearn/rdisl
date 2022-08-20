@@ -30,5 +30,6 @@ urlpatterns = [
     path('log-in/', loginPage.as_view(), name='loginPage'),
     path('forgot-password/', ForgotPassword.as_view(), name='ForgotPassword'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
-    path('admin-services/', ServicesView.as_view(), name='AdminServices'),
+    path('admin-services/', ServicesAdmin.as_view(), name='AddServices'),
+    path('admin-slider/', SliderAdmin.as_view(), name='SliderAdd'),
 ]
