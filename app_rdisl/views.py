@@ -177,3 +177,10 @@ class SliderView(TemplateView):
 
     def get_context_data(self, **kwargs):
         pass
+
+
+class ServicesView(TemplateView):
+    template_name = 'rdisl_admin/view-services.html'
+
+    def get_context_data(self, **kwargs):
+        pass
