@@ -1,4 +1,8 @@
-from django.views.generic.base import TemplateView
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, logout, login
+from django.urls import reverse_lazy
+from django.views.generic.base import TemplateView, View
 
 from .models import Slider, OurServices, GalleryCategory, Gallery, Client, Testimonial
 
@@ -11,7 +15,7 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['slider'] = Slider.objects.all().order_by('?')
+        context['slider'] = Slider.objects.all().order_by("-id")[:5]
         context['our_services'] = OurServices.objects.all()
         context['gallery_category'] = GalleryCategory.objects.all()
         context['gallery'] = Gallery.objects.all()
@@ -130,15 +134,38 @@ class OCS(TemplateView):
         pass
 
 
-class loginPage(TemplateView):
-    template_name = 'rdisl_admin/login.html'
+class loginPage(View):
+    def get(self, request):
+        return render(request, 'rdisl_admin/login.html')
 
-    def get_context_data(self, **kwargs):
-        pass
+    def post(self, request):
+        error = ""
+        if request.method == 'POST':
+            u = request.POST['uname']
+            p = request.POST['pwd']
+            user = authenticate(username=u, password=p)
+            try:
+                if user.is_staff:
+                    login(request, user)
+                    error = "no"
+                else:
+                    error = "yes"
+            except:
+                error = "yes"
+        return render(request, 'rdisl_admin/login.html', locals())
+
+
+class Logout(View):
+    def get(self, request):
+        logout(request)
+        return redirect('home')
 
 
 class RegisterNow(TemplateView):
     template_name = 'rdisl_admin/register.html'
+
+    # form_class =CustomerRegistrationFrm
+    # success_url = reverse_lazy("loginPage")
 
     def get_context_data(self, **kwargs):
         pass
@@ -155,7 +182,9 @@ class DashboardView(TemplateView):
     template_name = 'rdisl_admin/dashboard.html'
 
     def get_context_data(self, **kwargs):
-        pass
+        context = super().get_context_data(**kwargs)
+
+        return locals()
 
 
 class ServicesAdmin(TemplateView):
@@ -165,18 +194,43 @@ class ServicesAdmin(TemplateView):
         pass
 
 
-class SliderAdmin(TemplateView):
-    template_name = 'rdisl_admin/admin-slider.html'
+class SliderAdmin(View):
+    def get(self, request):
+        return render(request, 'rdisl_admin/admin-slider.html')
 
-    def get_context_data(self, **kwargs):
-        pass
+    def post(self, request):
+        error = ""
+        if not request.user.is_staff:
+            return redirect('loginPage')
+        if request.method == "POST":
+            si = request.FILES['img']
+            title = request.POST['title']
+            try:
+                Slider.objects.create(slider_img=si, title=title)
+                error = 'no'
+            except:
+                error = 'yes'
+        return render(request, 'rdisl_admin/admin-slider.html', locals())
 
 
 class SliderView(TemplateView):
     template_name = 'rdisl_admin/view-slider.html'
 
     def get_context_data(self, **kwargs):
-        pass
+        context = super().get_context_data(**kwargs)
+        if not self.request.user.is_staff:
+            return redirect('loginPage')
+        context['slider'] = Slider.objects.all()
+        return context
+
+
+class Delete_Slider(View):
+    def get(self, request, id):
+        if not request.user.is_staff:
+            return redirect('login')
+        doctor = Slider.objects.get(id=id)
+        doctor.delete()
+        return redirect('SliderView')
 
 
 class ServicesView(TemplateView):

@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from tinymce.models import HTMLField
 from django.db import models
 
 
@@ -99,3 +99,18 @@ class ContactUs(models.Model):
 
     class Meta:
         db_table = 'tbl_contact'
+
+class About_Us(models.Model):
+    about_img = models.ImageField(upload_to='images', blank=True)
+    description = HTMLField()
+    slug = models.SlugField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        db_table = "tbl_about_us"
+
+

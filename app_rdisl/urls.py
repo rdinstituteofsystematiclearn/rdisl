@@ -28,10 +28,14 @@ urlpatterns = [
     path('online-proctoring-services/', OPS.as_view(), name='OPS'),
     path('online-certification-platform/', OCS.as_view(), name='OCS'),
     path('log-in/', loginPage.as_view(), name='loginPage'),
+    path('logout/', Logout.as_view(), name='logout'),
+    path('register-now/', RegisterNow.as_view(), name='register'),
     path('forgot-password/', ForgotPassword.as_view(), name='ForgotPassword'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('admin-services/', ServicesAdmin.as_view(), name='AddServices'),
     path('admin-slider/', SliderAdmin.as_view(), name='SliderAdd'),
     path('view-slider/', SliderView.as_view(), name='SliderView'),
     path('view-services/', ServicesView.as_view(), name='ServicesView'),
+    path('delete-slider/<int:id>', Delete_Slider.as_view(), name='delete_slider'),
+
 ]

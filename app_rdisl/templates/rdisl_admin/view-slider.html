@@ -66,11 +66,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>S.No</th>
+                    <th>Images</th>
+                    <th>Title</th>
+
                                         <th>Action</th>
 
                   </tr>
@@ -78,19 +77,19 @@
                   <tbody>
 
 
-
+{% for sr in slider %}
                      <tr>
-                    <td>Other browsers</td>
-                    <td>All others</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>U</td>
+                    <td>{{forloop.counter}}</td>
+                    <td><img src="{{sr.slider_img.url}}" alt="" style="width:120px; height:50px;" > </td>
+                    <td>{{sr.title}}</td>
+
                        <td>
-                         <a href="#">Update</a>
-                         <a href="#">Delete</a>
+                        <a href="#"  class="on-default edit-row">Update</a>
+                      <a href="{% url 'delete_slider' sr.id %}"  class="btn btn-danger">Delete</a>
+
                        </td>
                   </tr>
-
+{% endfor %}
                   </tbody>
 
                 </table>
