@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
 from django.urls import reverse_lazy
+from django.views.generic import CreateView
 from django.views.generic.base import TemplateView, View
 
 from .models import Slider, OurServices, GalleryCategory, Gallery, Client, Testimonial
@@ -224,13 +225,35 @@ class SliderView(TemplateView):
         return context
 
 
-class Delete_Slider(View):
+class Delete_Slider(CreateView):
     def get(self, request, id):
         if not request.user.is_staff:
             return redirect('login')
         doctor = Slider.objects.get(id=id)
         doctor.delete()
         return redirect('SliderView')
+
+
+class Update_Slider(CreateView):
+    def get(self, request, id):
+        error = ""
+        if not request.user.is_authenticated:
+            return redirect('login')
+        user = request.user
+        slider = Slider.objects.get(id=id)
+        if request.method == "POST":
+            img = request.POST['img']
+            title = request.POST['title']
+
+            slider.slider_img = img
+            slider.title = title
+
+            try:
+                slider.save()
+                error = "no"
+            except:
+                error = "yes"
+        return render(request, 'edit_slider.html', locals())
 
 
 class ServicesView(TemplateView):

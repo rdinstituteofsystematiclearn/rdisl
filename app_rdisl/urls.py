@@ -37,5 +37,6 @@ urlpatterns = [
     path('view-slider/', SliderView.as_view(), name='SliderView'),
     path('view-services/', ServicesView.as_view(), name='ServicesView'),
     path('delete-slider/<int:id>', Delete_Slider.as_view(), name='delete_slider'),
+    path('edit-slider/<int:id>', Update_Slider.as_view(), name='edit_slider'),
 
 ]

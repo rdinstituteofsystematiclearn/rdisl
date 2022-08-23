@@ -84,7 +84,7 @@
                     <td>{{sr.title}}</td>
 
                        <td>
-                        <a href="#"  class="on-default edit-row">Update</a>
+                        <a href="{% url 'edit_slider' sr.id %}"  class="on-default edit-row">Update</a>
                       <a href="{% url 'delete_slider' sr.id %}"  class="btn btn-danger">Delete</a>
 
                        </td>
