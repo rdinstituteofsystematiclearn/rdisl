@@ -66,11 +66,11 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>S.No</th>
+                    <th>Image</th>
+                    <th>Heading</th>
+                    <th>Description</th>
+
                                         <th>Action</th>
 
                   </tr>
@@ -78,19 +78,19 @@
                   <tbody>
 
 
-
+{% for os in our_services %}
                      <tr>
-                    <td>Other browsers</td>
-                    <td>All others</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>U</td>
+                   <td>{{forloop.counter}}</td>
+                    <td><img src="{{os.images.url}}" alt="" style="width:120px; height:50px;" > </td>
+                    <td>{{os.heading}}</td>
+                    <td>{{os.description}}</td>
+
                        <td>
-                         <a href="#">Update</a>
-                         <a href="#">Delete</a>
+                           <a href="{% url 'edit_Services' os.id %}"  class="btn btn-info">Update</a>
+                      <a href="{% url 'delete_services' os.id %}"  class="btn btn-danger">Delete</a>
                        </td>
                   </tr>
-
+{% endfor %}
                   </tbody>
 
                 </table>

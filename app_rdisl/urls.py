@@ -32,11 +32,17 @@ urlpatterns = [
     path('register-now/', RegisterNow.as_view(), name='register'),
     path('forgot-password/', ForgotPassword.as_view(), name='ForgotPassword'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
+
     path('admin-services/', ServicesAdmin.as_view(), name='AddServices'),
     path('admin-slider/', SliderAdmin.as_view(), name='SliderAdd'),
+
     path('view-slider/', SliderView.as_view(), name='SliderView'),
     path('view-services/', ServicesView.as_view(), name='ServicesView'),
+
+    path('edit-services/<int:id>', views.Update_Services, name='edit_Services'),
+    path('edit-slider/<int:id>', views.Update_Slider, name='edit_slider'),
+
+    path('delete-services/<int:id>', Delete_Serives.as_view(), name='delete_services'),
     path('delete-slider/<int:id>', Delete_Slider.as_view(), name='delete_slider'),
-    path('edit-slider/<int:id>', Update_Slider.as_view(), name='edit_slider'),
 
 ]

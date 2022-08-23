@@ -229,35 +229,89 @@ class Delete_Slider(CreateView):
     def get(self, request, id):
         if not request.user.is_staff:
             return redirect('login')
-        doctor = Slider.objects.get(id=id)
-        doctor.delete()
+        slider = Slider.objects.get(id=id)
+        slider.delete()
         return redirect('SliderView')
 
 
-class Update_Slider(CreateView):
-    def get(self, request, id):
-        error = ""
-        if not request.user.is_authenticated:
-            return redirect('login')
-        user = request.user
-        slider = Slider.objects.get(id=id)
-        if request.method == "POST":
-            img = request.POST['img']
-            title = request.POST['title']
+def Update_Slider(request, id):
+    error = ""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    user = request.user
+    slider = Slider.objects.get(id=id)
+    if request.method == "POST":
+        n1 = request.FILES['slider_img']
+        m1 = request.POST['title']
 
-            slider.slider_img = img
-            slider.title = title
+        slider.slider_img = n1
+        slider.title = m1
 
-            try:
-                slider.save()
-                error = "no"
-            except:
-                error = "yes"
-        return render(request, 'edit_slider.html', locals())
+        try:
+            slider.save()
+            error = "no"
+        except:
+            error = "yes"
+    return render(request, 'rdisl_admin/edit_slider.html', locals())
 
 
 class ServicesView(TemplateView):
     template_name = 'rdisl_admin/view-services.html'
 
     def get_context_data(self, **kwargs):
-        pass
+        context = super().get_context_data(**kwargs)
+        if not self.request.user.is_staff:
+            return redirect('loginPage')
+        context['our_services'] = OurServices.objects.all()
+        return context
+
+
+class ServicesAdmin(View):
+    def get(self, request):
+        return render(request, 'rdisl_admin/admin-services.html')
+
+    def post(self, request):
+        error = ""
+        if not request.user.is_staff:
+            return redirect('loginPage')
+        if request.method == "POST":
+            head = request.POST['heading']
+            des = request.POST['description']
+            img = request.FILES['images']
+            try:
+                OurServices.objects.create(heading=head, description=des, images=img)
+                error = 'no'
+            except:
+                error = 'yes'
+        return render(request, 'rdisl_admin/admin-services.html', locals())
+
+
+class Delete_Serives(CreateView):
+    def get(self, request, id):
+        if not request.user.is_staff:
+            return redirect('login')
+        os = OurServices.objects.get(id=id)
+        os.delete()
+        return redirect('ServicesView')
+
+def Update_Services(request, id):
+    error = ""
+    if not request.user.is_authenticated:
+        return redirect('login')
+    user = request.user
+    os = OurServices.objects.get(id=id)
+    if request.method == "POST":
+        img = request.FILES['images']
+        hg = request.POST['heading']
+        ds = request.POST['description']
+
+        os.images = img
+        os.heading = hg
+        os.description = ds
+
+        try:
+            os.save()
+            error = "no"
+        except:
+            error = "yes"
+    return render(request, 'rdisl_admin/edit-services.html', locals())

@@ -19,7 +19,7 @@ class Slider(models.Model):
 
 class OurServices(models.Model):
     heading = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.CharField(max_length=12000)
     images = models.ImageField(upload_to='images', blank=True)
     slug = models.SlugField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)

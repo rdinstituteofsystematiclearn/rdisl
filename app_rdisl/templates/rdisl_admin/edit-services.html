@@ -53,7 +53,7 @@
 
      <script>
 	   alert(' Successfully');
-       window.location=('{% url 'SliderView' %}');
+       window.location=('{% url 'ServicesView' %}');
      </script>
 {% endif %}
 
@@ -68,16 +68,21 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label >Services image</label>
-                    <input type="file" name="slider_img" class="form-control" value="{{slider.slider_img.url}}">
+                    <input type="file" name="images" class="form-control" value="{{os.images.url}}">
 
                   </div>
 
                     <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" id="title" value="{{slider.title}}">
+                    <label for="heading">Title</label>
+                    <input type="text" name="heading" class="form-control" id="heading" value="{{os.heading}}">
                   </div>
 
-              
+                <div class="form-group">
+                    <label for="Description">Description </label>
+                     <textarea  name="description" class="form-control" id="description" placeholder="Enter Description">{{os.description}}</textarea>
+
+                  </div>
+
 
 
                 </div>
